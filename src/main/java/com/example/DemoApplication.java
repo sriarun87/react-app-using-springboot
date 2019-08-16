@@ -1,11 +1,6 @@
 package com.example;
 
 import java.util.Date;
-import java.util.Map;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,21 +18,23 @@ public class DemoApplication {
 
 @Controller
 class HomeController {
+
 	@GetMapping
-	@RequestMapping("/home")
-	public String home() {
-		return "index";
+	@RequestMapping("/")
+	public ModelAndView home() {
+
+		ModelAndView mav = new ModelAndView();
+		Date date = new Date();
+		mav.addObject("version", date.getTime());
+
+		mav.setViewName("index");
+		return mav;
 	}
 
 	@GetMapping
 	@RequestMapping("/welcome")
-	public ModelAndView welcome() {
-
-		ModelAndView mav = new ModelAndView();
-		Date date = new Date();
-		mav.addObject("version", date.toLocaleString());
-		mav.setViewName("welcome");
-		return mav;
+	public String welcome() {
+		return "welcome";
 	}
 
 	@GetMapping
