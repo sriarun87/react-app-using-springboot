@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -29,8 +31,13 @@ class HomeController {
 
 	@GetMapping
 	@RequestMapping("/welcome")
-	public String welcome() {
-		return "welcome";
+	public ModelAndView welcome() {
+
+		ModelAndView mav = new ModelAndView();
+		Date date = new Date();
+		mav.addObject("version", date.toLocaleString());
+		mav.setViewName("welcome");
+		return mav;
 	}
 
 	@GetMapping
