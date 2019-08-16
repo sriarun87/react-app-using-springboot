@@ -2,10 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ReplacePlugin from 'replace-webpack-plugin';
-import GitRevisionPlugin from 'git-revision-webpack-plugin';
-import packageJSON from '../../package.json';
 import fs from 'fs';
-const gitRevisionPlugin = new GitRevisionPlugin();
 
 const replacePlugins = () => {
   const output = [];
@@ -32,9 +29,6 @@ const config = {
 
   entry: {
     cart: [path.join(__dirname, '../src/apps/demo/')]
-    // overlay: [path.join(__dirname, '../src/apps/overlay/')],
-    // minicart: [path.join(__dirname, '../src/apps/minicart/')],
-    // quickadd: [path.join(__dirname, '../src/apps/quickadd/')]
   },
 
   output: {
@@ -66,9 +60,6 @@ const config = {
       'process.env': {
         NODE_ENV: '"production"'
       }
-      // VERSION: JSON.stringify(gitRevisionPlugin.version()),
-      // PACKAGE_JSON_VERSION: JSON.stringify(packageJSON.version),
-      // COMMITHASH: JSON.stringify(gitRevisionPlugin.commithash())
     }),
     new ExtractTextPlugin('css/demo.css', { allChunks: true }),
     new webpack.optimize.UglifyJsPlugin({

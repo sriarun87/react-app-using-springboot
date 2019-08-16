@@ -4,22 +4,17 @@ import LiveReloadPlugin from 'webpack-livereload-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import { APP_HOST } from '../src/constants/environment';
 import GitRevisionPlugin from 'git-revision-webpack-plugin';
-import packageJSON from '../../package.json';
 
 const port = 80;
 const webServerEntry = [
   `webpack-dev-server/client?http://${APP_HOST}:${port}`,
   'webpack/hot/only-dev-server'
 ];
-const gitRevisionPlugin = new GitRevisionPlugin();
 
 const config = {
 
   entry: {
     cart: [path.join(__dirname, '../src/apps/demo'), ...webServerEntry]
-    // overlay: [path.join(__dirname, '../src/apps/overlay'), ...webServerEntry],
-    // minicart: [path.join(__dirname, '../src/apps/minicart'), ...webServerEntry],
-    // quickadd: [path.join(__dirname, '../src/apps/quickadd'), ...webServerEntry]
   },
 
   output: {
@@ -37,11 +32,6 @@ const config = {
       fetch: 'imports-loader?this=>global!exports-loader?global.fetch!fetch-ie8'
     }),
     new ExtractTextPlugin('css/demo.css', { allChunks: true }),
-    // new webpack.DefinePlugin({
-    //   VERSION: JSON.stringify(gitRevisionPlugin.version()),
-    //   PACKAGE_JSON_VERSION: JSON.stringify(packageJSON.version),
-    //   COMMITHASH: JSON.stringify(gitRevisionPlugin.commithash()),
-    // })
   ],
 
   resolve: {
