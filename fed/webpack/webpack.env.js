@@ -1,29 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import ReplacePlugin from 'replace-webpack-plugin';
-import fs from 'fs';
-
-const replacePlugins = () => {
-  const output = [];
-  const folderNames = ['./src/main/resources/templates/'];
-  folderNames.forEach(folderName => {
-    const files = fs.readdirSync(folderName);
-    files.forEach(file => {
-      if (file.includes('.template')) {
-        output.push(new ReplacePlugin({
-          skip: process.env.NODE_ENV !== 'production',
-          entry: folderName + file,
-          hash: '[hash]',
-          output: folderName + file.replace('.template', ''),
-          data: {
-          }
-        }));
-      }
-    });
-  });
-  return output;
-};
 
 const config = {
 
@@ -35,7 +12,7 @@ const config = {
     path: path.join(__dirname, '../../src/main/resources/static/app/'),
     filename: 'demo.bundle.js',
     chunkFilename: 'js/[id].chunk.js',
-    publicPath: '/cart/app/'
+    publicPath: '/demo/app/'
   },
 
   module: {
@@ -64,7 +41,6 @@ const config = {
     new ExtractTextPlugin('css/demo.css', { allChunks: true }),
     new webpack.optimize.UglifyJsPlugin({
       comments: false,
-      sourceMap: true,
       compressor: {
         warnings: false
       }
@@ -72,25 +48,17 @@ const config = {
     new webpack.ProvidePlugin({
       fetch: 'imports-loader?this=>global!exports-loader?global.fetch!fetch-ie8'
     }),
-    ...replacePlugins()
   ],
 
   resolve: {
     alias: {
       app: path.join(__dirname, '../src/apps'),
       extension: path.join(__dirname, '../src/browser/extension'),
-      'account.list': path.join(__dirname, '../src/apps/shared/noop'),
-      jquery: path.join(__dirname, '../src/apps/shared/noop'),
-      'thd-cart-throttle':
-        path.join(__dirname, '../../node_modules/thd-cart-throttle/dist/thd-cart-throttle.amd'),
-      'cookie-utils':
-        path.join(__dirname, '../../node_modules/cookie-utils/dist/cookie-utils')
+      jquery: path.join(__dirname, '../src/apps/shared/noop')
     },
     extensions: ['.js', '.jsx']
   },
 
 };
-
-config.devtool = 'source-map';
 
 export default config;
