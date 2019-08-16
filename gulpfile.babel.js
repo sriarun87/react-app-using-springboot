@@ -21,15 +21,8 @@ gulp.task('requirejs', [
 gulp.task('build:web', [
   'eslint',
   'webpack:build:web',
-  // 'build:allJS',
-  'webpack:build:web:debug',
-  // 'requirejs',
-  // 'post-css:build:web',
-  // 'post-css:min:web',
-  // 'css:min:web',
-  'copy:build:web',
-  // 'build:npm-list:hfapp',
-  // 'build:npm-list:app'
+  // 'webpack:build:web:debug',
+  // 'copy:build:web',
 ]);
 
 gulp.task('build:css', [

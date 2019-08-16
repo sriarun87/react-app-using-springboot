@@ -16,7 +16,7 @@ const gitRevisionPlugin = new GitRevisionPlugin();
 const config = {
 
   entry: {
-    cart: [path.join(__dirname, '../src/apps/cart'), ...webServerEntry]
+    cart: [path.join(__dirname, '../src/apps/demo'), ...webServerEntry]
     // overlay: [path.join(__dirname, '../src/apps/overlay'), ...webServerEntry],
     // minicart: [path.join(__dirname, '../src/apps/minicart'), ...webServerEntry],
     // quickadd: [path.join(__dirname, '../src/apps/quickadd'), ...webServerEntry]
