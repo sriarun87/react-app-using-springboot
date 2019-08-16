@@ -1,0 +1,17 @@
+@import "../../../../src/main/resources/static/node_modules/global-css/src/sass/components/_variables.scss";
+
+.cartListHeader {
+  border-bottom: solid 1px $light;
+ // margin-bottom: $space-standard;
+  padding-top: $space-normal;
+}
+.cartListHeader__title {
+  font-family: $bold;
+  font-size: $font-size-base;
+}
+.cartListHeader__title--center {
+  text-align: center;
+}
+.cartListHeader__title--right {
+  text-align: right;
+}

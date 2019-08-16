@@ -1,0 +1,192 @@
+@import '../../../../src/main/resources/static/node_modules/global-css/src/sass/components/_variables.scss';
+
+.quick-add-to-cart-button {
+  width: 84% !important;
+}
+
+.z_check {
+  z-index: 0;
+}
+
+.item-detail-box {
+  min-height: 40px;
+  min-width: 30px;
+  width: 100%;
+  font-size: $font-size-base;
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #F4F4F4;
+}
+
+.quick-add__container-border {
+  border: 20px solid #eee;
+}
+
+.quick-add__parent-container {
+  background: #eee;
+  flex-direction: column;
+}
+
+.quick-add__container-border-bottom {
+  border-bottom: 20px solid #eee;
+}
+
+.quick-add__title-border-bot {
+  border-bottom: 1px solid #979797;
+}
+
+.copy-paste_text-input {
+  height: 250px;
+  resize: none;
+}
+
+.copy-paste_text-input::placeholder {
+  line-height: 1.7;
+}
+
+.padding-bottom-normal-quick-add {
+  padding-bottom: $space-normal;
+}
+
+.bulk-add_wrapper{
+  width:100%;
+}
+.bulk-order-width{
+  width: 400px;
+  height: 400px;
+}
+
+.lookup-button-width{
+  width:45% !important;
+}
+
+
+.ToolTip-text {
+  text-align: left;
+  font-size: 1.1rem;
+  padding-left: 10px;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.25);
+    visibility: hidden;
+    width: 230px;
+    background-color: #fff;
+    color: #555;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 1px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 999;
+    bottom: 155%;
+    left: -222%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.tooltip-header {
+  text-align: left;
+  padding-left: 10px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.accordion__content-wrapper {
+  transition: all 0.3s ease-out -0.1s;
+  opacity: 0;
+  z-index: auto;
+}
+
+.accordion__input:checked~.accordion__content-wrapper {
+  opacity: 1;
+  overflow: visible;
+}
+
+.breadcrumb__item {
+  display: inline;
+  color: #3E7697;
+  float: none;
+  margin-right: 20px;
+  padding: 0;
+}
+
+.breadcrumb__link {
+  font-weight: normal;
+}
+
+.breadcrumb__item:after {
+  content: "/";
+  font-size: 16px;
+  right: -10px;
+  position: relative;
+  color: #666;
+  line-height: 1em;
+}
+.breadcrumb__item:last-child:after {
+  content: " ";
+}
+
+.breadcrumb__item-selected {
+  color: rgb(102, 102, 102);
+}
+
+.quick-add-border {
+  border-top-width: 20px;
+  border-color: #EEE;
+  border-top-style: solid;
+  border-bottom-width: 20px;
+  border-color: #EEE;
+  border-bottom-style: solid;
+}
+
+.quick-add-interior {
+  border-bottom: 0px !important;
+  border-top: 0px !important;
+}
+
+.share-cart-position {
+  @media (max-width: $screen-xs) {
+    top: 35px;
+  }
+  position: relative;
+  top: 38px;
+  z-index: 1;
+} 
+
+.shareCartModal {
+  width: 400px;
+}
+
+.shareCartModal__header-text {
+  vertical-align: middle;
+  font-size: 14px;
+}

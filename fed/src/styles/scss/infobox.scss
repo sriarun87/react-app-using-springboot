@@ -1,0 +1,32 @@
+@import "../../../../src/main/resources/static/node_modules/global-css/src/sass/components/_variables.scss";
+@import "../../../../src/main/resources/static/node_modules/global-css/src/sass/mixins/_flexbox-mixin.scss";
+
+
+// *-----------------------------------------------
+// Start Map Info Box Component
+
+.mapInfoBox {
+  width: 290px;
+  background-color: #fff;
+  border: solid 1px $primary;
+  position:absolute;
+  z-index: 100001;
+}
+.mapInfoBox__footer {
+  min-height: 85px;
+}
+
+.MapPushpinBase {
+  z-index: -1;
+}
+// Componenet Elements
+
+.mapInfoBox__header {
+  
+}
+.mapInfoBox__title {
+
+}
+
+// End Map Info Box Component
+// *-----------------------------------------------

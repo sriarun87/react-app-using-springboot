@@ -1,0 +1,820 @@
+@import '../../../../src/main/resources/static/node_modules/global-css/src/sass/components/_variables.scss';
+@import '../../../../src/main/resources/static/node_modules/global-css/src/sass/mixins/_flexbox-mixin.scss';
+@import '../../../../node_modules/thd-overlay/sass/_thd-overlay';
+
+
+// https://git.hdtechlab.com/aurora/mycart/issues/841
+// http://stackoverflow.com/questions/21657786/chrome-font-size-loads-large-and-then-reduces
+html {
+  font-size: 10px !important;
+}
+
+// need to remove, figure out why this is here
+.productTitle--vCenter {
+  @include build-flexbox(row no-wrap, center, center);
+  height: 100%;
+}
+// global css styles the article tag
+article {
+  margin: 0 !important;
+}
+
+// This override is so the iFrame does not freakout when
+// the input box is selected, had to remove the input 3px bottom on focus
+.form-input__field {
+  font-size: 16px !important;
+}
+.form-input__field:focus {
+  border-bottom-width: 1px !important;
+  font-size: 16px !important;
+}
+.drop-down__select {
+  font-size: 16px !important;
+}
+.packages--truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  text-align: left;
+}
+.ship-to-messaging__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.map-message__link {
+  color: $alternate;
+  font-size: $medium;
+}
+.package-brand-name {
+  font-family: "HelveticaNeue-Light","Helvetica Neue", Helvetica, sans-serif;
+  font-size: 24px;
+}
+.package-price {
+  &__container {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &__currency, &__cents {
+    font-size: $medium;
+    vertical-align: 1.2ex;
+    line-height: 1rem;
+  }
+  &__dollars {
+    font-size: $large;
+  }
+}
+
+.packages__item__image {
+  max-width: 150px;
+  max-height: 150px;
+  min-width: 125px;
+  min-height: 125px;
+}
+.package-availability__zipcode-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.package-availability__error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.express-true {
+  background: url('/mycart/assets/svg/express-true-card.svg');
+  background-repeat: no-repeat;
+  width:30px;
+  height:21px;
+}
+@media (min-width: $screen-xs) {
+  .form-input__field {
+    font-size: 1.4rem !important;
+  }
+  .form-input__field:focus {
+    border-bottom-width: 3px !important;
+    font-size: 1.4rem !important;
+  }
+  .product-info__container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// *-----------------------------------------------
+// Start ATC Overlay Component
+@media (max-width: $screen-xs) {
+  .u__border--bottom--xs {
+    border-bottom: solid 1px $light;
+  }
+
+  .padding-left-zero--xs {
+    padding-left: 0;
+  }
+
+  .padding-right-zero--xs {
+    padding-right: 0;
+  }
+
+  .padding-top-zero--xs {
+    padding-top: 0;
+  }
+
+  .padding-bottom-zero--xs {
+    padding-bottom: 0;
+  }
+
+  .packages__item__image {
+    max-width: 125px;
+    max-height: 125px;
+  }
+
+}
+
+@media (min-width: $screen-xs) {
+  .atcOverlay__product {
+    border-right: solid 1px $light;
+  }
+  .u__border--right--sm {
+    border-right: solid 1px $light;
+  }
+}
+.atcOverlay__protectionPlan {
+  border-top: solid 1px $light;
+  border-bottom: solid 1px $light;
+}
+@media (min-width: $screen-xs) {
+  .atcOverlay__protectionPlan {
+    border-bottom: none;
+  }
+}
+.atcOverlay__productTitle {
+  margin-bottom: $space-standard;
+}
+@media (min-width: $screen-xs) {
+  .atcOverlay__cartTotal button {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .atcOverlay__cartTotal .paypal-express-button {
+    width: 80%;
+  }
+}
+
+.atcOverlay__certona {
+  border-top: solid 1px $light;
+  min-height: 307px;
+}
+#instore_alt_rr .certona__header {
+  margin: 5px 20px;
+  text-align: left;
+}
+#instore_alt_rr {
+  margin-top: -40px;
+}
+
+#instore_alt_rr.atcOverlay__certona {
+  border-top: none;
+}
+#instore_alt_rr .certona__wrapper--withfill {
+  background-color: #fff;
+}
+#instore_alt_rr .certona__productpod {
+  border-right: 1px solid #ccc;
+  padding: 0px 18px;
+}
+#instore_alt_rr .certona__productpod::last-child {
+  border-right: none;
+}
+
+// End ATC Overlay Component
+// *-----------------------------------------------
+
+// *-----------------------------------------------
+// Start Product Title Component
+
+.productTitle {
+  margin-bottom: $space-standard;
+}
+
+// Component Modifiers
+
+.productTitle--vCenter {
+  @include build-flexbox(row no-wrap, center, flex-start);
+  height: 100%;
+}
+
+// End Product Title Component
+// *-----------------------------------------------
+
+// *-----------------------------------------------
+// Start Store List Component
+
+.storeList {
+  max-height: 260px;
+  overflow: scroll;
+}
+
+.storeList__multiple {
+  height: 260px;
+}
+
+// Component Elements
+
+.storeList__row {
+  display: flex;
+  box-pack: justify;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  width: 100%;
+  border-bottom: solid 1px $light;
+}
+.storeList__row:first-child {
+  border-top: solid 1px $light;
+}
+.storeList__row:nth-child(even) {
+  background-color: $lightest;
+}
+.storeList__col {
+  position: relative;
+  float: left;
+  box-sizing: border-box !important;
+  padding-top: $space-standard;
+  padding-bottom: $space-standard;
+}
+
+// Component Modifiers
+
+.storeList__row--selected {
+  position: relative;
+}
+.storeList__row--selected:before {
+  content: '';
+  border-left: solid 5px $brand;
+  position: absolute;
+  left: 0;
+  height: 100%;
+}
+.storeList__col--order-1 {
+  flex-basis: 120px;
+  order: 1;
+}
+.storeList__col--order-2 {
+  flex-basis: 180px;
+  order: 2;
+}
+.storeList__col--order-3 {
+  flex-basis: 150px;
+  order: 3;
+}
+.storeList__col--order-4 {
+  flex-basis: 490px;
+  order: 4;
+}
+.storeList__col--alert {
+  flex-basis: 300px;
+}
+.storeList__col--map {
+  flex-basis: 50%;
+}
+
+.storeList--map.storeList {
+  height: 350px !important; //!brad
+  max-height: 350px !important; //!brad
+}
+
+// End Store List Component
+// *-----------------------------------------------
+
+// *-----------------------------------------------
+// Start Store Component
+
+.store {
+  padding: $space-standard 0;
+  border-bottom: 1px solid $light;
+}
+.store:first-child {
+  border-top: 1px solid $light;
+}
+
+// Component Elements
+
+.store__localized {
+  font-family: $bold;
+  color: $primary;
+}
+.store__name {
+  font-size: $medium;
+  font-family: $bold;
+  word-wrap: break-word;
+}
+.store__message {
+  margin-bottom: $space-standard;
+}
+.store__address {
+  // font-family: $bold;
+  margin-bottom: $space-standard;
+}
+.store__phone {
+  font-family: $font-family-sans-serif;
+}
+
+// Component Modifiers
+
+.store--plain,
+.store--plain:first-child {
+  padding: 0;
+  border: none;
+}
+
+.store__name--small {
+  font-size: $font-size-base;
+}
+
+.store__name--inline {
+  display: inline-block;
+}
+
+.store__badge {
+  padding: 0 $space-standard;
+}
+
+.add-to-cart__content {
+  padding-top: $space-standard;
+}
+// End Store Component
+// *-----------------------------------------------
+
+// *-----------------------------------------------
+// Start Store Search Component
+
+.storeSearch {
+  background-color: $faded;
+  // padding: $space-standard $space-small $space-standard 0;
+  margin-bottom: $space-normal;
+}
+
+// Component Elements
+
+.storeSearch__searchBox {
+  position: relative;
+}
+
+.storeSearch__search-bttn {
+  position: absolute;
+  height: 40px;
+  width: 50px;
+  background-color: $brand;
+  color: white;
+  z-index: 2;
+  right: 0;
+}
+.storeSearch__search-bttn:active {
+  height: 36px;
+  width: 48px;
+  top: 2px;
+  right: 2px;
+}
+
+.storeSearch__geoLocation {
+  @include build-flexbox(row no-wrap, center, flex-start);
+  padding: 0 0 10px 0;
+}
+@media (min-width: $screen-xs) {
+  .storeSearch__geoLocation {
+    padding: 38px 0 0 20px;
+  }
+}
+.storeSearch__geoLocation svg {
+  margin-right: 5px;
+}
+
+// Component Modifiers
+
+.storeSearch--vCenter {
+  // @include build-flexbox(row no-wrap, center, center);
+  height: 100%;
+}
+.storeSearch--flush {
+  margin-top: -20px;
+}
+
+// NO!!! NO's!!! come back and fix!!!
+
+.storeSearch .u__husky {
+  line-height: 2.4rem;
+}
+.storeSearch__searchBox .form-input__field {
+  padding-right: 60px;
+}
+.storeSearch__search-bttn svg {
+  margin-top: 3px;
+}
+
+// End Store Search Component
+// *-----------------------------------------------
+
+// *-----------------------------------------------
+// Start Quantity Component
+
+.quantity {
+  display: flex;
+}
+.quantity__label {
+  @include build-flexbox(row no-wrap, center, center);
+  font-family: $bold;
+  margin-right: $space-standard;
+}
+.quantity__input {
+  width: 60px;
+}
+.quantity__input .form-input__field {
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: none;
+}
+
+// End Quantity Component
+// *-----------------------------------------------
+
+// *-----------------------------------------------
+// Start Date Display Component
+
+.dateDisplay {
+  display: flex;
+  margin-bottom: $space-standard;
+  padding: $space-standard $space-xsmall;
+  background: $faded;
+  border-radius: $border-radius-base;
+}
+
+// Component Elements
+
+.dateDisplay__unit {
+  width: 33.33333333%;
+  margin: 0 $space-xsmall;
+  padding: $space-xsmall;
+  border-radius: $border-radius-base;
+  text-align: center;
+  font-size: $large;
+  font-family: $bold;
+  background-color: $dark;
+  color: white;
+}
+
+// End Item Available Component
+// *-----------------------------------------------
+
+// *-----------------------------------------------
+// Start Progress Component
+
+.progress {
+  margin-bottom: $space-standard;
+  display: flex;
+  box-pack: justify;
+  flex-wrap: nowrap;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+// Component Elements
+
+.progress__step {
+  @include build-flexbox(row no-wrap, center, center);
+  flex-grow: 1;
+  height: 40px;
+  position: relative;
+  background-color: $faded;
+  border-color: $faded;
+  border-style: solid;
+  border-width: 0;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-size: $legal;
+  text-transform: uppercase;
+  font-family: $bold;
+  color: $link-color;
+}
+.progress__step:last-child {
+  margin-right: 21px;
+}
+.progress__step:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -21px;
+  width: 40px;
+  height: 40px;
+  transform: scale(0.7) rotate(45deg);
+  z-index: 1;
+  background-color: $faded;
+}
+.progress__step:hover {
+  color: $link-hover-color;
+}
+.progress__check {
+  padding-left: 16px;
+  display: inline-block;
+  position: relative;
+}
+
+// Component Modifiers
+
+.progress__check--active:before {
+  content: '';
+  background-image: url(/mycart/assets/images/check.svg);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 12px;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 2px;
+  background-size: 80%;
+}
+.progress__check--active:before svg {
+  fill: red;
+}
+
+.progress__step--active,
+.progress__step:active,
+.progress__step:focus {
+  background-color: white;
+  text-decoration: none;
+}
+.progress__step--active:after,
+.progress__step:active:after,
+.progress__step:focus:after {
+  background-color: white;
+  transform: scale(0.65) rotate(45deg);
+}
+
+// End Progress Component
+// *-----------------------------------------------
+
+// WHAT IS THIS JAMES!!!!!!!!!!!!!!!
+.alphaPrompt-msg-error {
+  color: $danger;
+}
+
+.p-left-normal {
+  padding-left: $space-standard;
+}
+
+.m-right-normal {
+  margin-right: $space-standard;
+}
+
+// *-----------------------------------------------
+// Start Protection Plan Component
+
+
+.protectionPlan__title {
+  text-transform: uppercase;
+  color: $primary;
+  margin-bottom: $space-small;
+}
+.protectionPlan__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.protectionPlan__listItem {
+  font-size: $legal;
+  color: $primary;
+  margin-bottom: $space-standard;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  background-size: 20px;
+  height: 20px;
+  line-height: 20px;
+}
+.protectionPlan__listItem--noCost {
+  background-image: url('/mycart/assets/images/hdpp_no-fees_icon.png');
+}
+.protectionPlan__listItem--tools {
+  background-image: url('/mycart/assets/images/hdpp_parts-labor_icon.png');
+}
+.protectionPlan__listItem--house {
+  background-image: url('/mycart/assets/images/hdpp_in-home_icon.png');
+}
+.protectionPlan__listItem--clock {
+  background-image: url('/mycart/assets/images/hdpp_24-7_icon.png');
+}
+
+.protectionPlan__textAlign {
+  width: 285px;
+}
+// End Protection Plan Component
+// *-----------------------------------------------
+
+// *-----------------------------------------------
+// Start Simple Tooltip Component
+
+.simpleTooltip {
+  position: relative;
+  display: inline-block;
+}
+
+// @TODO Brad NEED TO ADD ARROW
+
+.simpleTooltip__content {
+  visibility: hidden;
+  width: 225px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 25px;
+  margin-left: -100px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+}
+// .simpleTooltip__content:after {
+// 	bottom: 100%;
+// 	left: 50%;
+// 	border: solid transparent;
+// 	content: " ";
+// 	height: 0;
+// 	width: 0;
+// 	position: absolute;
+// 	pointer-events: none;
+// 	border-color: rgba(255, 255, 255, 0);
+// 	border-bottom-color: #fff;
+// 	border-width: 30px;
+// 	margin-left: -30px;
+// }
+
+.simpleTooltip:hover .simpleTooltip__content {
+  visibility: visible;
+}
+
+// End Simple Tooltip Component
+// *-----------------------------------------------
+
+/* my cart carousel styles */
+
+.ProductCarouselGroup {
+  background-color: #eee;
+  padding: 30px 10px 20px 10px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+}
+.ProductCarouselGroup__Title {
+  margin-bottom: 15px;
+}
+.ProductCarouselPod {
+  background-color: #fff;
+  height: auto;
+  width: 130px;
+  overflow: hidden;
+  box-sizing: border-box;
+  float: left;
+}
+.ProductCarouselPod__Info {
+  padding: 10px 10px 0 10px;
+  height: 282px;
+}
+.product_carousel_Img {
+  text-align: center;
+}
+
+.ProductCarouselPod__Image {
+  width: 110px;
+  margin-bottom: 10px;
+  display: block;
+  border: 1px solid #ccc;
+}
+
+.RatingsReviews {
+  display: inline-block;
+  width: 110px;
+}
+
+.RatingsReviews__Info {
+  width: 75px;
+  margin-right: 2px;
+  display: inline-block;
+}
+
+.RatingsReviews--star {
+  webkit-transform: translate(-18px, 0) scale(0.7);
+  transform: translate(-18px, 0) scale(0.7);
+}
+
+.mw_atcmodal_rr {
+  width: 320px;
+  margin: 0 auto;
+}
+.hdppPrice__text {
+  font-family: $bold;
+}
+
+.ProductCarouselPod a {
+  text-decoration: none;
+}
+.dateUpperCase {
+  text-transform: uppercase;
+}
+.storeMap__pointer {
+  width: 25px;
+  height: 38px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  left: 138px;
+  top: 100%;
+  background: url('/mycart/assets/images/pointer_shadow.png') no-repeat;
+}
+
+.showNearbyStoreArrow {
+  background-position: -8px 1381px;
+}
+.hideStoresArrow {
+  background-position: -8px 1403px;
+}
+.title_alignment--center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+#bing-map {
+  position: absolute;
+  width: 98%;
+  height: 100%;
+}
+.bttn-outline--primary .bttn__content {
+  height: 36px;
+}
+.continue-shopping-bttn__active {
+  background-color: #666;
+  color: #fff;
+}
+
+// Warranty, protectionPlan, proReferral ( add ons )
+// *-----------------------------------------------
+
+.no-min-height {
+  min-height: 0px !important;
+}
+
+.atcOverlay__proReferral {
+  border-bottom: solid 1px $light;
+}
+
+@media (min-width: $screen-xs) {
+  .atcOverlay__proReferral {
+    border-bottom: none;
+  }
+}
+
+.atcOverlay__proReferral_logo {
+  padding-top: 4px;
+}
+
+.u__vertical-transform--middle {
+  transform: translateY(50%) !important;
+}
+
+.u__horizontal--center {
+  display: flex;
+  justify-content: center;
+}
+
+.u__justify-content--space-between {
+  justify-content: space-between;
+}
+
+.u__align-items--center {
+  align-items: center;
+}
+
+.u__price__equal-sign {
+  font-size: 0.9em !important;
+  vertical-align: top;
+}
+
+.u__muted-text {
+  color: $mediumgrey;
+}
+
+// Overriding Global tooltip's close button
+.ToolTip__closebutton {
+  right: 10px;
+  top: 5px;
+}
+
+.ToolTip__closebutton:after {
+  font-size: 10px;
+}

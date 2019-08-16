@@ -1,0 +1,22 @@
+doctype html
+
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Cart
+    script.
+      var src = '/css/main.css'
+      if (window.location.hash.indexOf('mobile') !== -1) {
+        src = '/css/mobile.css';
+      }
+      var link = document.createElement('link');
+      link.setAttribute('rel', 'stylesheet');
+      link.setAttribute('type', 'text/css')
+      link.setAttribute('href', src);
+      document.head.appendChild(link);
+
+    link(rel='stylesheet' type='text/css' href='/css/cart.css')
+  body
+    #root
+  script(src=env === 'prod' ? 'js/cart.bundle.js' : '/js/cart.bundle.js')

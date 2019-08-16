@@ -1,0 +1,21 @@
+.POJobListItem {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+.POJobInput {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+.POJobLongList {
+  overflow: scroll;
+  height: 340px;
+}
+
+.z-index-neg {
+  z-index: -1;
+}

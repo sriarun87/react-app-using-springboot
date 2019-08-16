@@ -1,0 +1,120 @@
+.mini-cart{
+  width: 285px;
+
+  .mini-cart-summary {
+    height: 160px;
+  }
+  .content-shadow {
+    -webkit-box-shadow: 0px -6px 10px -3px rgba(145,145,145,1);
+    box-shadow: 0px -6px 10px -3px rgba(145,145,145,1);
+  }
+  .item-image {
+    margin: 0 auto;
+    display: block;
+    width: auto;
+    max-height: 40px;
+  }
+  .item-description {
+    text-overflow: ellipsis;
+    max-width: calc(40em * 0.5);
+    white-space: nowrap;
+    overflow:hidden;
+  }
+  .qty-input {
+    width: 42px;
+    padding: 0 5px;
+    min-height: 24px !important;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 13px !important;
+  }
+  .qty-box {
+    padding-bottom: 3px;
+    padding-top: 3px;
+
+    div {
+      display:inline-block;
+      margin-right: 5px;
+      vertical-align: top;
+    }
+    .dynamic-qty{
+      margin-top: -3px;
+    }
+    .remove-item{
+      background-image: url('/mycart/assets/svg/trash-can-icon.svg');
+      background-repeat: no-repeat;
+      width: 14px;
+      height: 14px;
+      margin-left: 5px;
+      margin-top: 2px;
+    }
+  }
+  .stick-scroll-bar {
+    overflow-y: scroll;
+  }
+  .scroll-height-single {
+    height: 440px;
+  }
+  .scroll-height-multiple {
+    height: 460px;
+  }
+  .alert-inline--danger:before {
+    margin: 2px 5px 0 0;
+  }
+  .alert-inline{	
+    min-height: auto;	
+    align-items: stretch;	
+  }
+  .cartListHeader {
+    padding-top: 15px !important;
+  }
+  .icon-shipping {
+    background-position: center 1196px !important;
+  }
+  .cart-icon{
+    border-bottom: 1px solid #ccc; 
+    padding: 28px 0 26px 0;
+  }
+  .cart-icon span{
+    background-image: url('/mycart/assets/svg/cart.svg');
+    background-repeat: no-repeat;
+    background-size: 78%;
+    height:25px;
+    width:42px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: -5px;
+    margin-left: 3px;
+    margin-top: -3px;
+  }
+  .u__color--faded{
+    color: #666;
+  }
+  .flush_none {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
+
+.QSIFeedBackLink,
+.LPMimage,
+img[alt='Feedback Link'],
+img[alt='Live Chat'] {
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 20px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #aaa; 
+  border-radius: 20px;
+}
