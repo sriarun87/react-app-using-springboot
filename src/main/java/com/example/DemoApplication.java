@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,9 @@ public class DemoApplication {
 
 @Controller
 class HomeController {
+
+	@Autowired
+	public UserRepository userRepository;
 
 	@GetMapping
 	@RequestMapping("/")
@@ -36,6 +40,19 @@ class HomeController {
 	public String welcome() {
 		return "welcome";
 	}
+
+	@GetMapping
+	@RequestMapping("/v2/users")
+	public @ResponseBody Iterable<User> getAllUsers() {
+		return userRepository.findAll();
+	}
+
+	@PostMapping
+	@RequestMapping("/v2/user")
+	public @ResponseBody String addNewUser(@RequestBody User user) {
+		userRepository.save(user);
+		return "User Saved";
+	};
 
 	@GetMapping
 	@RequestMapping("/v2/service")

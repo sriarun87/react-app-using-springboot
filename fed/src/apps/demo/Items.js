@@ -5,13 +5,16 @@ export default class Items extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: null
+      items: null,
+      users: null
     };
   }
 
   render() {
     // eslint-disable-next-line react/prop-types
     this.state.items = this.props.items;
+    // eslint-disable-next-line react/prop-types
+    this.state.users = this.props.users;
 
     return (
       <React.Fragment>
@@ -25,6 +28,20 @@ export default class Items extends React.Component {
                 <div>{item.itemId}</div>
                 <div>{item.brandName}</div>
                 <div>{item.description}</div>
+              </div>
+              <hr />
+            </div>
+          );
+        })
+        }
+        {this.state.users && this.state.users.map((user, i) => {
+          return (
+            <div key={i}>
+              <div>
+                <div>{user.firstName}</div>
+                <div>{user.lastName}</div>
+                <div>{user.age}</div>
+                <div>{user.email}</div>
               </div>
               <hr />
             </div>

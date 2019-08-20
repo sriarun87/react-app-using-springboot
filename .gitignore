@@ -5,3 +5,4 @@ src/main/resources/static/app
 *.classpath
 .project
 .settings
+.idea
