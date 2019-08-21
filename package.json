@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "demo template",
   "scripts": {
-    "build": "gulp build:web",
+    "build": "gulp build",
     "start": "gulp",
     "gulp": "gulp",
     "test": "jest",

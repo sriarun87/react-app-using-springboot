@@ -23,7 +23,7 @@ gulp.task('clean', () => {
   ]);
 });
 
-gulp.task('webpack:build:web', ['clean'], callback => {
+gulp.task('webpack:build', ['clean'], callback => {
   build(webConfig, () => {
     setTimeout(callback, 500);
   });

@@ -3,7 +3,7 @@ import requireDir from 'require-dir';
 
 requireDir('./fed/gulp');
 
-gulp.task('build:web', [
+gulp.task('build', [
   'eslint',
-  'webpack:build:web',
+  'webpack:build',
 ]);

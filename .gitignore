@@ -6,3 +6,4 @@ src/main/resources/static/app
 .project
 .settings
 .idea
+.DS_Store
