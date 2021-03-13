@@ -166,7 +166,7 @@
     "webpack-hot-middleware": "^2.25.0",
     "webpack-livereload-plugin": "^1.2.0",
     "webpack-path-rewriter": "^1.1.4",
-    "xmldom": "^0.1.27",
+    "xmldom": "^0.5.0",
     "xmlhttprequest": "^1.8.0",
     "yargs": "^8.0.1"
   }
